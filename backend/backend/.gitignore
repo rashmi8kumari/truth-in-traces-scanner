@@ -1,0 +1,33 @@
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Environment
+.env
+
+# Virtual environment
+venv/
+env/
+
+# Logs
+*.log
+
+# OS / IDE junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node / React frontend
+node_modules/
+build/
+dist/
+
+# Byte-compiled / temporary
+*.pyo
+*.pyd
+*.db
+
+# PDFs generated dynamically
+*.pdf
