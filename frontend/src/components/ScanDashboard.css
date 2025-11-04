@@ -1,0 +1,205 @@
+/* --- Global cyber styling --- */
+body {
+  background: radial-gradient(circle at top, #000, #001a0a);
+  color: #00ff88;
+  font-family: "Orbitron", "Consolas", monospace;
+  overflow-x: hidden;
+}
+
+/* Layout */
+.dashboard-wrap {
+  display: flex;
+  gap: 20px;
+  width: 1200px;
+  margin: 40px auto;
+}
+
+/* Left panel (Radar + logs) */
+.left-panel {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Radar section */
+.radar-wrap {
+  background: linear-gradient(180deg, #001100, #000);
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.08);
+}
+
+/* Radar circle */
+.radar {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(0, 255, 136, 0.05), rgba(0, 0, 0, 0.9));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+/* Sweep animation */
+.sweep {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 140%;
+  height: 140%;
+  transform-origin: 0% 50%;
+  border-radius: 50%;
+  opacity: 0.15;
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.25), rgba(0, 255, 136, 0.02));
+  transition: all 0.6s;
+}
+
+.sweep.active {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Center glowing dot */
+.center-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 20px #00ff88, 0 0 60px rgba(0, 255, 136, 0.6);
+  z-index: 2;
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Scan progress */
+.progress {
+  position: absolute;
+  bottom: 12px;
+  color: #33ff99;
+  font-weight: 700;
+  text-shadow: 0 0 8px #00ff88;
+  font-size: 14px;
+}
+
+/* Scan button */
+.scan-action {
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #001e0a;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+}
+
+.scan-action:hover {
+  background: #003315;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+}
+
+.scan-action.scanning {
+  background: #00220a;
+  box-shadow: 0 0 28px rgba(0, 255, 136, 0.25), 0 0 10px rgba(0, 255, 136, 0.25);
+}
+
+/* Logs section */
+.logs-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 136, 0.1);
+  height: 230px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+.logs {
+  max-height: 190px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00ff88 #001a0a;
+}
+
+.logs::-webkit-scrollbar {
+  width: 6px;
+}
+.logs::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 4px;
+}
+.logs::-webkit-scrollbar-track {
+  background: #001a0a;
+}
+
+.log-line {
+  color: #b7ffcf;
+  margin: 5px 0;
+  font-size: 13px;
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.3px;
+}
+
+/* Right panel (results) */
+.right-panel {
+  flex: 1;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.placeholder {
+  color: #0f3a20;
+  padding: 20px;
+  background: linear-gradient(90deg, #00160a, #000f08);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 136, 0.04);
+  text-align: center;
+  letter-spacing: 0.4px;
+}
+
+/* Results grid */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.result-card {
+  background: rgba(0, 10, 5, 0.6);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 136, 0.08);
+  box-shadow: inset 0 0 12px rgba(0, 255, 136, 0.05);
+  color: #aaffdd;
+  font-size: 14px;
+}
